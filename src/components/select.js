@@ -29,15 +29,10 @@ class Select extends React.Component {
   render() {
      //const isActive = canDrop && isOver;
     //const { canDrop, isOver, connectDropTarget } = this.props;
-    const style = {
-      width: "200px",
-      height: "404px",
-    };
     const { connectDropTarget } = this.props;
-    const backgroundColor = this.props.DragActive ? 'lightgreen' : '#FFF';
     const NumberOfItems = this.props.list.length; 
     return connectDropTarget(
-      <div style={{ ...style, backgroundColor }}>
+      <div>
       <input onChange={this.FilterItems} />
       {NumberOfItems}
       {this.props.list.filter(data => data.Name.toLowerCase().includes(this.state.searchTerm.toLowerCase())).map((el, i) => {

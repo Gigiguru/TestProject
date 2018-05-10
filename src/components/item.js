@@ -11,15 +11,10 @@ class Item extends React.Component{
     this.props.SendDataToInfo('')
   }
   render(){
-    const style= {
-      height:50,
-      border: '1px solid gray',
-      margin:5
-    }
     const { dragItem, isDragging, connectDragSource, connectDropTarget} =this.props;
     const opacity = isDragging ? 0:1;
     return connectDragSource( //<--- change => connectDragSource(connectDropTarget( to manual sorting 
-      <div style={style}
+      <div 
       onMouseEnter={this.HandleDataToSend}
 	    onMouseLeave={this.NullDataToSend}>
       {dragItem.Id}

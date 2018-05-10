@@ -6,15 +6,11 @@ class Info extends React.Component{
     return [];
   }
   render(){
-    const style ={
-      width:200,
-      overflow:'hidden'
-    }
     //const All = this.props.SelectList.concat(this.props.KanbanListOne)
     const Select = this.props.SelectList
     const ShowAll = this.InitalInfoData();
-	return(
-	  <div style={style}>
+	  return(
+    <div >
 	  {this.props.WhatIShow ==='' ? 
 	  <div> loadinn.. </div>:
 	  <div>

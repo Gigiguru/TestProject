@@ -33,14 +33,14 @@ class Container extends React.Component {
     const { connectDropTarget} = this.props;
     //const isActive = canDrop && isOver;
     const style = {
-      width: "200px",
+      width: "100px",
       height: "404px",
       border: '1px dashed gray'
     };
     const backgroundColor = this.props.DragActive ? 'lightgreen' : '#FFF';
     return connectDropTarget(
       <div style={{ ...style, backgroundColor }}>
-      <button onClick={this.ResetDatas}> RESET </button>
+        <button onClick={this.ResetDatas}> <i class="fa fa-undo"></i> </button>
         {this.props.list.map((el, i) => {
           return (
             <Item

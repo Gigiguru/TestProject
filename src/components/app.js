@@ -31,20 +31,23 @@ class App extends React.Component{
     const ListTwoECTS = this.props.KanbanListTwo.reduce((t, next) => t + next.ECTS, 0)
     const ListThreeECTS = this.props.KanbanListThree.reduce((t, next) => t + next.ECTS, 0)
     const ListFourECTS = this.props.KanbanListFour.reduce((t, next) => t + next.ECTS, 0)
-    const style = {
-      display: "flex",
-      justifyContent: "space-around",
-      paddingTop: "20px"
-    }
     return (
-      <div style={{ ...style }}>
-        <Select id={1} list={this.props.SelectList} />
-        <Container id={2} list={this.props.KanbanListOne}  />
-        <Container id={3} list={this.props.KanbanListTwo} />
-        <Container id={4} list={this.props.KanbanListThree} />
-        <Container id={5} list={this.props.KanbanListFour} />
-        <Info />
-      </div>
+      <div className="App">
+
+        <div className="SelectKanban">
+         <Select id={1} list={this.props.SelectList} />
+        </div>
+
+        <div className="ContainerKanban">
+          <Container id={2} list={this.props.KanbanListOne} />
+          <Container id={3} list={this.props.KanbanListTwo} />
+          <Container id={4} list={this.props.KanbanListThree} />
+          <Container id={5} list={this.props.KanbanListFour} />
+        </div>
+        <div className="InfoKanban">
+          <Info />
+        </div>
+    </div>
     );
   }
 }

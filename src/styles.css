@@ -1,15 +1,76 @@
+:root {
+  --main-bg-color: #20232a; 
+}
 html,
-body, #root ,.Contents {
+body,
+#root,
+.Contents {
   height: 100%;
   width: 100%;
   margin: 0;
 }
+/* NavBar*/
 .NavBar {
-  height: 10%;
-  background-color: blue;
-  color:white;
+  height: 6%;
+  background-color:var(--main-bg-color);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1.2em;
 }
-.Container{
-   height: 90%;
-   overflow: hidden;
+.NavBar > span {
+   float: left;
+}
+.NavBar > span >.LoginButton {
+   float: right;
+}
+
+.NavBar > span a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+.NavBar > span a:hover:not(.active) {
+    background-color: grey;
+}
+.fa-align-justify{
+  padding: 1.1em;
+  color:white;
+  
+}
+/* Container */
+.Container {
+  height: 90%;
+  overflow: hidden;
+}
+.Footer {
+  height: 4%;
+  background-color: black;
+}
+/* APP Component styles */
+.App {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  padding: 10px;
+}
+.App > .SelectKanban{
+  height: 100%;
+  flex-grow: 2;
+  overflow:hidden;
+}
+.App > .ContainerKanban{
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-grow: 6;
+}
+.App > .InfoKanban{
+  height: 100%;
+  flex-grow: 2;
+  overflow:hidden;
 }
