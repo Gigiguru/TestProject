@@ -46,7 +46,7 @@ class Container extends React.Component {
             <Item
               key={el.id}
               index={i}
-              Itemtext={el.Name}
+              Itemtext={el.Id}
               listId={this.props.id}
               dragItem={el}
               RemoveData={this.RemoveData.bind(this)}
