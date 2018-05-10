@@ -32,7 +32,6 @@ class Select extends React.Component {
     const style = {
       width: "200px",
       height: "404px",
-      border: '1px dashed gray'
     };
     const { connectDropTarget } = this.props;
     const backgroundColor = this.props.DragActive ? 'lightgreen' : '#FFF';
