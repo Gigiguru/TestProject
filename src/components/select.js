@@ -33,8 +33,15 @@ class Select extends React.Component {
     const NumberOfItems = this.props.list.length; 
     return connectDropTarget(
       <div>
-      <input onChange={this.FilterItems} />
-      {NumberOfItems}
+      <div className="SelectOption">
+      <input type="text" onChange={this.FilterItems} />
+      <input type="text"/>
+      <input type="text"/>
+      <div className="SelectSortOption">
+      {NumberOfItems} <button className="SortButton">Sort By:{"data"}</button>
+      </div>
+      </div>
+      <div className="SelectItems">
       {this.props.list.filter(data => data.Name.toLowerCase().includes(this.state.searchTerm.toLowerCase())).map((el, i) => {
           return (
             <Item
@@ -47,6 +54,7 @@ class Select extends React.Component {
               SendDataToInfo={this.SendDataToInfo} />
           );
         })}
+       </div> 
       </div>
     );
   }

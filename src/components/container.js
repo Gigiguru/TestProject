@@ -26,21 +26,26 @@ class Container extends React.Component {
   }
   SendDataToInfo = (data) => {
     this.props.SetInfoData(data);
-
   }
   render(){
     //const { canDrop, isOver, connectDropTarget } = this.props;
-    const { connectDropTarget} = this.props;
+    
     //const isActive = canDrop && isOver;
-    const style = {
-      width: "100px",
-      height: "404px",
-      border: '1px dashed gray'
-    };
-    const backgroundColor = this.props.DragActive ? 'lightgreen' : '#FFF';
+    const { connectDropTarget } = this.props;
+    const KanbanStyle = this.props.DragActive === null ? "Kanban" : "KanbanHor"
+    const backgroundColor = this.props.DragActive ? (this.props.ECTS > 60 ? 'red' : 'green') : 'black';
+    const changeIconColor={
+      borderTopColor: backgroundColor,
+    }
     return connectDropTarget(
-      <div style={{ ...style, backgroundColor }}>
-        <button onClick={this.ResetDatas}> <i class="fa fa-undo"></i> </button>
+      <div className="Kanban" >
+        <div className="KanbanLabel" style={changeIconColor}>
+            <span>DropTarget:{this.props.id}</span>
+            <span><button onClick={this.ResetDatas}> <i className="fa fa-undo"></i> </button> </span>
+            <span><i style={ changeIconColor } className="fa fa-download" aria-hidden="true"></i></span>
+            <span>{this.props.ECTS}/60</span>
+        </div>
+        <div className="KanbanItems">
         {this.props.list.map((el, i) => {
           return (
             <Item
@@ -53,6 +58,7 @@ class Container extends React.Component {
               SendDataToInfo={this.SendDataToInfo}  />
           );
         })}
+        </div>
       </div>
     );
   }

@@ -1,5 +1,7 @@
 :root {
   --main-bg-color: #20232a; 
+  --KanbanStrect:stretch;
+  --KanbanHor:column;
 }
 html,
 body,
@@ -55,22 +57,126 @@ body,
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: stretch;
   padding: 10px;
 }
 .App > .SelectKanban{
   height: 100%;
-  flex-grow: 2;
+  width: 15%;
+}
+.App > .SelectKanban > div{
+  height: 100%;
   overflow:hidden;
 }
-.App > .ContainerKanban{
-  height: 100%;
+.SelectOption{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.SelectSortOption{
+  display:flex;
+  align-items:stretch;
+  padding: 5px 0px 5px 0px;
+  border-bottom:2px solid #ddd;
+  border-top:2px solid #ddd;
+}
+.SelectSortOption >span {
+  width: 100%;
+}
+.App > .SelectKanban > div .SelectItems{
+  width: 98%;
+  height: 78%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.SelectItems > div {
+  height: 50px;
+  border:1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  margin:5px;
+}
+.SelectKanban > div > div input[type=text]{
+    width: 95%;
+    margin-bottom: 5px;
+    height: 20px;
+    border: 2px solid #ccc;
+    padding:1%;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+ 
+}
+/*Kanban(container components)*/
+.ContainerKanban{
+  height: 95%;
+  width: 63%;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding:0px 10px 0px 10px;
+  border-left:2px solid black;
+  border-right:2px solid black;
+}
+.progressbar{
+   width: 100%;
+   height: 5%;
+   background-color: grey;
+}
+.Kanban{
+  border:1px solid #ddd;
+  margin:0% 1% 0% 1%; 
+  width: 25%;
+  overflow: hidden;
+ border-radius:5px 5px 5px 0px;
+}
+.KanbanItems {
+  width: 100%;
+  height:100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color:#ddd;
+}
+.ContainerKanban > div {
   display: flex;
-  align-items: stretch;
-  flex-grow: 6;
+  width: 100%;
+  height: 80%;
+}
+.KanbanItems  >div{
+  height: 50px;
+  border:1px solid black;
+  padding: 5px;
+  border-radius:5px 5px 5px 5px;
+  background-color:white;
+  margin-top:5px; 
+  
+}
+.KanbanHor{
+  border:1px solid gray;
+  margin:0% 1% 0% 1%; 
+  width: 100%;
+  height: 25%;
+}
+.KanbanLabel{
+  /*background-color:var(--main-bg-color);*/
+  color:black;
+  height: 45px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:1px;
+
+ /* border-bottom:2px solid #ccc;
+  border-left:2px solid #ccc;
+  border-right:2px solid #ccc;*/
+  border-top:5px solid ;
+}
+.KanbanLabel > span{
+ margin:5px;
 }
 .App > .InfoKanban{
   height: 100%;
-  flex-grow: 2;
+  width: 20%;
   overflow:hidden;
+
 }

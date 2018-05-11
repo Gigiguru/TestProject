@@ -16,15 +16,17 @@ class App extends React.Component{
 
     }
   }
-  componentWillMount(){
-    axios.get(`datas.json`,)
+  componentDidMount(){
+    if (this.props.SelectList.length <= 0){
+    axios.get(`datas.json`, )
       .then(res => {
         console.log(res.data)
         this.props.GETSTATE(res.data)
       })
-      .catch(err =>{
+      .catch(err => {
         console.log("err")
       })
+  }
   }
   render(){
     const ListOneECTS = this.props.KanbanListOne.reduce((t, next) => t + next.ECTS, 0)
@@ -33,17 +35,21 @@ class App extends React.Component{
     const ListFourECTS = this.props.KanbanListFour.reduce((t, next) => t + next.ECTS, 0)
     return (
       <div className="App">
-
+     
         <div className="SelectKanban">
          <Select id={1} list={this.props.SelectList} />
         </div>
 
         <div className="ContainerKanban">
-          <Container id={2} list={this.props.KanbanListOne} />
-          <Container id={3} list={this.props.KanbanListTwo} />
-          <Container id={4} list={this.props.KanbanListThree} />
-          <Container id={5} list={this.props.KanbanListFour} />
+          <div>
+          <Container id={2} list={this.props.KanbanListOne} ECTS={ListOneECTS}/>
+          <Container id={3} list={this.props.KanbanListTwo} ECTS={ListTwoECTS}/>
+          <Container id={4} list={this.props.KanbanListThree} ECTS={ListThreeECTS}/>
+          <Container id={5} list={this.props.KanbanListFour} ECTS={ListFourECTS}/>
+          </div>
+          <div className="progressbar"> progress bar </div>
         </div>
+        
         <div className="InfoKanban">
           <Info />
         </div>

@@ -11,6 +11,7 @@ class Item extends React.Component{
     this.props.SendDataToInfo('')
   }
   render(){
+    
     const { dragItem, isDragging, connectDragSource, connectDropTarget} =this.props;
     const opacity = isDragging ? 0:1;
     return connectDragSource( //<--- change => connectDragSource(connectDropTarget( to manual sorting 
